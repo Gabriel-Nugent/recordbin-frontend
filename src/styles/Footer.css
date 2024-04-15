@@ -1,0 +1,15 @@
+Footer {
+  background-color: var(--default-secondary-color);
+  color: var(--default-text-color);
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  font-size: 12px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+Footer a {
+  margin-left: 6px;
+}

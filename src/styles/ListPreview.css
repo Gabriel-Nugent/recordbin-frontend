@@ -1,0 +1,26 @@
+div.list-preview {
+  padding: 10px;
+  border: 2px solid transparent;
+  border-bottom: 2px solid var(--default-secondary-color);
+  display: grid;
+  grid-template-columns: min-content auto;
+  align-items: center;
+}
+
+div.list-preview:hover {
+  border: 2px solid var(--default-tertiary-color);
+  cursor: pointer;
+}
+
+div.list-preview-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  width: 100px;
+  height: 100px;
+}
+
+section.list-preview {
+  padding-left: 10px;
+}

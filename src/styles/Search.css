@@ -1,0 +1,21 @@
+#results-page {
+  padding: 40px 100px 80px 100px;
+  background-color: var(--default-primary-color);
+  display: flex;
+  flex-direction: column;
+}
+
+main.no-results {
+  background-color: var(--default-primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2.search-header {
+  margin: 0px;
+  font-weight: 200;
+  padding-top: 30px;
+  font-size: 2em;
+  text-align: center;
+}

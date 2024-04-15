@@ -1,0 +1,139 @@
+div.signin {
+  height: 100%;
+}
+
+div.signin-area {
+  height: calc(100% - 115px);
+  width: 100%;
+  background-color: var(--default-primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main.signin {
+  background-color: transparent;
+  height: 600px;
+  width: 800px;
+  display: grid;
+  grid-template-columns: 400px auto;
+  border-radius: 5px;
+}
+
+div.signin-input {
+  height: 100%;
+  background-color: rgb(247, 244, 244);
+  border: solid 5px rgb(247, 244, 244);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.signin-input h2 {
+  color: var(--default-secondary-color);
+  margin-top: 60px;
+  font-size: 3em;
+  font-weight: 600;
+}
+
+h3.signin {
+  color: var(--default-primary-color);
+  margin: 0px;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+form.signin {
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+}
+
+div.input-area {
+  border: 1px solid rgb(99, 98, 98);
+  border-radius: 5px;
+  color: var(--default-primary-color);
+  display: flex;
+  align-items: center;
+  height: 40%;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition-duration: 200ms;
+}
+
+div.input-area:has(input:focus),
+div.input-area:has(input:hover),
+div.input-area:has(textarea:focus),
+div.input-area:has(textarea:hover) {
+  border-color: var(--default-tertiary-color);
+  box-shadow: 0px 0px 5px var(--default-tertiary-color);
+}
+
+input.signin {
+  height: 80%;
+  width: 100%;
+  margin: 0px 0px 0px 10px;
+  padding: 0px 0px 0px 10px;
+  border-left: 1px dashed rgb(99, 98, 98);
+  font-size: 18px;
+}
+
+button.signin {
+  height: 35px;
+  margin-top: 50px;
+  color: white;
+  font-size: 20px;
+  border: var(--default-tertiary-color);
+  border-radius: 5px;
+  background-color: var(--default-tertiary-color);
+  transition-duration: 200ms;
+}
+
+button.signin:hover {
+  cursor: pointer;
+  background-color: var(--default-quaternary-color);
+}
+
+section.signin {
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: solid 5px var(--default-secondary-color);
+  background-color: #151515;
+  opacity: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.signin h1{
+  margin-top: 20px;
+  background-color: var(--default-secondary-color);
+  border-top: 1px solid var(--default-tertiary-color);
+  border-bottom: 1px solid var(--default-tertiary-color);
+  padding: 20px;
+  font-size: 3em;
+  text-align: center;
+}
+
+section.signin p {
+  background-color: var(--default-secondary-color);
+  width: 100%;
+  text-align: center;
+  font-size: 1.25em;
+  padding: 5px;
+  margin-top: 43px;
+}
+
+img.signin {
+  width: calc(75% - 20px);
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  margin-bottom: 50px;
+}

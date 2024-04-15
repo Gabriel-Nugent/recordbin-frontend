@@ -1,0 +1,8 @@
+#loading-page {
+  background-color: var(--default-primary-color);
+  min-height: calc(100% - 115px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

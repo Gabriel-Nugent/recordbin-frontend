@@ -1,0 +1,149 @@
+div.release-page {
+  height: 100%;
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+}
+
+main.release-page {
+  padding: 80px 100px 80px 100px;
+  background-color: var(--default-primary-color);
+  display: grid;
+  grid-template-rows: min-content min-content ;
+  justify-content: center;
+  row-gap: 20px;
+}
+
+div.release-page-upper {
+  display: grid;
+  grid-template-columns: min-content auto;
+  column-gap: 50px;
+  align-items: center;
+}
+
+div.release-image-container {
+  height: 300px;
+  width: 300px;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img.release-page {
+  height: 100%;
+  width: 100%;
+}
+
+section.release-info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+section.release-info h1 {
+  font-size: 3em;
+  font-weight: 300;
+}
+
+section.release-info h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 2em;
+  font-weight: 100;
+}
+
+section.release-info h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  font-weight: 900;
+}
+
+h2.tracks {
+  margin: 0px;
+}
+
+div.release-page-lower {
+  display: grid;
+  grid-template-columns: auto min-content;
+  align-items: start;
+  column-gap: 40px;
+  width: 100%;
+}
+
+section.release-tracks {
+  max-width: 900px;
+}
+
+div.release-track-container {
+  border-top: 3px solid var(--default-secondary-color);
+}
+
+section.release-actions {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.release-icons {
+  display: flex;
+  width: 100%;
+  height: min-content;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button.release-actions {
+  font-size: 1.25em;
+  font-weight: 400;
+  white-space: nowrap;
+  width: 100%;
+  margin-bottom: 20px;
+  color: white;
+  background-color: var(--default-secondary-color);
+  padding: 5px 15px;
+  border: 2px solid rgb(36, 36, 36);
+  border-radius: 6px;
+}
+
+button.release-actions:hover,
+button.release-actions:focus {
+  cursor: pointer;
+  color: var(--default-tertiary-color);
+  background-color: rgb(36, 36, 36);
+}
+
+.MuiRating-icon {
+  margin-bottom: 20px;
+}
+
+.MuiRating-iconEmpty {
+  border-color: white;
+}
+
+div.modal-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+#modal-title {
+  text-align: center;
+}
+
+#modal-description {
+  text-align: center;
+}
+
+#lists {
+  height: 400px;
+  max-height: 60%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.divider {
+  background-color: rgb(89, 88, 88);
+}

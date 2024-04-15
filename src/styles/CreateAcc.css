@@ -1,0 +1,228 @@
+div.CreateAcc {
+  height: 100%;
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+}
+
+div.CreateAcc-area {
+  min-height: 800px;
+  width: 100%;
+  background-color: var(--default-primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main.CreateAcc {
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: 400px auto;
+  border-radius: 5px;
+}
+
+div.CreateAcc-input {
+  height: 100%;
+  background-color: rgb(247, 244, 244);
+  border: solid 5px rgb(247, 244, 244);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.CreateAcc-input h2 {
+  color: var(--default-secondary-color);
+  margin-top: 40px;
+  margin-bottom: 0px;
+  font-size: 2.5em;
+  font-weight: 600;
+  text-align: center;
+}
+
+h3.CreateAcc {
+  color: var(--default-primary-color);
+  margin: 0px;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 1.25em;
+}
+
+form.CreateAcc {
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+}
+
+div.input-area {
+  border: 1px solid rgb(99, 98, 98);
+  border-radius: 5px;
+  color: var(--default-primary-color);
+  display: flex;
+  align-items: center;
+  height: 40%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+input.CreateAcc {
+  height: 80%;
+  width: 100%;
+  margin: 0px 0px 0px 10px;
+  padding: 0px 0px 0px 10px;
+  border-left: 1px dashed rgb(99, 98, 98);
+  font-size: 18px;
+}
+
+button.CreateAcc {
+  height: 50px;
+  margin-top: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+  font-size: 20px;
+  border: var(--default-tertiary-color);
+  border-radius: 5px;
+  background-color: var(--default-tertiary-color);
+  transition-duration: 200ms;
+}
+
+button.CreateAcc:hover {
+  cursor: pointer;
+  background-color: var(--default-quaternary-color);
+}
+
+form p.CreateAcc {
+  color: var(--default-primary-color);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#signin-link {
+  margin-left: 3px;
+  text-decoration: none;
+  color: var(--default-tertiary-color);
+  transition-duration: 100ms;
+  padding: 1px 2px 1px 2px;
+  border: 2px solid transparent;
+  background-color: transparent;
+}
+
+#signin-link:hover {
+  color:var(--default-quaternary-color);
+  background-color: grey;
+  border: 2px solid grey;
+  border-radius: 10%;
+}
+
+section.CreateAcc {
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: solid 5px var(--default-secondary-color);
+  background-color: #151515;
+  opacity: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.CreateAcc h1{
+  margin-top: 20px;
+  background-color: var(--default-secondary-color);
+  border-top: 1px solid var(--default-tertiary-color);
+  border-bottom: 1px solid var(--default-tertiary-color);
+  padding: 20px;
+  font-size: 3em;
+  text-align: center;
+}
+
+section.CreateAcc p {
+  background-color: var(--default-secondary-color);
+  width: 100%;
+  text-align: center;
+  font-size: 1.25em;
+  padding: 5px;
+  margin-top: 43px;
+}
+
+img.CreateAcc {
+  width: calc(75% - 20px);
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  margin-bottom: 50px;
+}
+
+@media (prefers-color-scheme: light) {
+  
+  div.CreateAcc-area {
+    background-color: var(--light-primary-color);
+  }
+  
+  main.CreateAcc {
+    background-color: transparent;
+  }
+  
+  div.CreateAcc-input {
+    background-color: rgb(247, 244, 244);
+    border: solid 5px rgb(247, 244, 244);
+  }
+  
+  div.CreateAcc-input h2 {
+    color: var(--default-secondary-color);
+  }
+  
+  h3.CreateAcc {
+    color: var(--default-primary-color);
+  }
+  
+  div.input-area {
+    border: 1px solid rgb(99, 98, 98);
+    color: var(--default-primary-color);
+  }
+  
+  input.CreateAcc {
+    border-left: 1px dashed rgb(99, 98, 98);
+  }
+  
+  button.CreateAcc {
+    color: white;
+    border: var(--default-tertiary-color);
+    background-color: var(--default-tertiary-color);
+  }
+  
+  button.CreateAcc:hover {
+    background-color: var(--default-quaternary-color);
+  }
+  
+  form p.CreateAcc {
+    color: var(--default-primary-color);
+  }
+  
+  #signin-link {
+    color: var(--default-tertiary-color);
+  }
+  
+  #signin-link:hover {
+    color:var(--default-quaternary-color);
+    background-color: grey;
+    border: 2px solid grey;
+  }
+  
+  section.CreateAcc {
+    border: solid 5px var(--default-secondary-color);
+  }
+  
+  section.CreateAcc h1{
+    background-color: var(--default-secondary-color);
+    border-top: 1px solid var(--default-tertiary-color);
+    border-bottom: 1px solid var(--default-tertiary-color);
+  }
+  
+  section.CreateAcc p {
+    background-color: var(--default-secondary-color);
+  }
+}

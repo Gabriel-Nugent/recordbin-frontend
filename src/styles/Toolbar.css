@@ -1,0 +1,84 @@
+header {
+  background-color: var(--default-secondary-color);
+  height: 45px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: center;
+}
+
+#right_links {
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo {
+  align-self: center;
+  font-weight: 900;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+header img {
+  height: 100%;
+  width: 100%;
+}
+
+header a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: var(--main-text-color);
+  transition-duration: 100ms;
+  white-space: nowrap;
+  font-size: 18px;
+}
+
+header a:hover {
+  color: var(--default-tertiary-color);
+}
+
+#create-account {
+  background-color: var(--default-tertiary-color);
+  padding: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+  vertical-align: middle;
+  border: 5px solid var(--default-tertiary-color);
+}
+
+#create-account:hover {
+  color: var(--main-text-color);
+  background-color: var(--default-quaternary-color);
+  border: 5px solid var(--default-quaternary-color);
+  color: grey;
+}
+
+#logout {
+  background-color: transparent;
+  color: var(--default-text-color);
+  text-wrap: nowrap;
+  border: 0px;
+  font-size: 1.25em;
+  margin-left: 10px;
+  transition-duration: 100ms;
+  cursor: pointer;
+}
+
+#logout:hover, #logout:focus {
+  color: var(--default-tertiary-color);
+}
+
+#pfp-link {
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+}

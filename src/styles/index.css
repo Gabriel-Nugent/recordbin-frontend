@@ -1,0 +1,71 @@
+/* clears the ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+input,textarea {
+  border:none;
+  background-image:none;
+  background-color:transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-justify: center;
+}
+
+textarea {
+  display:block;
+  resize: none;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+
+:root {
+  --default-text-color: #e8e8e8;
+  --default-text-select-color: #c2c1c1;
+  --default-primary-color: #1d1d1d;
+  --default-secondary-color: #151515;
+  --default-tertiary-color: #6052ff;
+  --default-quaternary-color: #231b7c;
+  --light-accent-color: #11B5E4;
+
+  --light-text-color: #000000;
+  --light-text-select-color: #c2c1c1;
+  --light-primary-color: #ffffff;
+  --light-secondary-color: #c4c1c1;
+  --light-tertiary-color: #6052ff;
+  --light-quaternary-color: #231b7c;
+  --light-accent-color: #11B5E4;
+
+  color: var(--default-text-color);
+}
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1 {
+  margin: 0;
+}

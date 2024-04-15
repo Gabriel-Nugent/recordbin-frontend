@@ -1,0 +1,27 @@
+div.track-container {
+  display: flex;
+  border-bottom: 3px solid var(--default-secondary-color);
+  padding: 10px 15px ;
+  align-items: center;
+  justify-content: space-between;
+  transition-duration: 100ms;
+}
+
+div.track-container:hover {
+  border-left: 3px solid var(--default-tertiary-color);
+  border-right: 3px solid var(--default-tertiary-color);
+}
+
+div.track-left {
+  display: flex;
+}
+
+p.track-number {
+  min-width: 18px;
+  padding-right: 30px;
+  text-align: center;
+}
+
+p.track {
+  margin: 0px;
+}

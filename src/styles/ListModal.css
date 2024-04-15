@@ -1,0 +1,14 @@
+div.list-modal-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+div.list-modal-image-containter {
+  border: 1px solid white;
+  padding: 2px;
+}
+
+h3.list-modal-title {
+  padding-left: 20px;
+}

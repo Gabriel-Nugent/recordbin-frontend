@@ -1,0 +1,61 @@
+form.searchbar {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+form.searchbar label,
+form.searchbar button{
+  background-color: var(--default-primary-color);
+  border: 2px solid rgb(89, 88, 88);
+  border-radius: 10px;
+  padding: 5px 5px ;
+  transition-duration: 100ms;
+}
+
+form.searchbar label:hover,
+form.searchbar label:focus,
+form.searchbar label:has(input.bar:focus) {
+  background-color: var(--default-text-color);
+  border: 2px solid var(--default-tertiary-color);
+  border-radius: 10px;
+}
+
+form.searchbar label:has(input.bar:focus) {
+  box-shadow: 0px 0px 15px var(--default-tertiary-color);
+}
+
+label.album-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input.bar {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--default-secondary-color);
+  color: var(--default-text-color);
+}
+
+input.bar:hover,
+input.bar:focus {
+  color: var(--default-secondary-color);
+}
+
+button#search-submit {
+  background-color: var(--default-primary-color);
+  height: 90%;
+  padding: 0px 10px;
+  color: rgb(89, 88, 88);
+}
+
+button#search-submit:hover,
+button#search-submit:focus {
+  cursor: pointer;
+  background-color: var(--default-tertiary-color);
+  border-color: var(--default-tertiary-color);
+  color: var(--default-text-color);
+}

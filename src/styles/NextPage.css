@@ -1,0 +1,57 @@
+div.next-button-container {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  width: min-content;
+  align-self: center;
+}
+
+button.move-page {
+  width: min-content;
+  height: 100%;
+  background-color: white;
+  color: var(--default-primary-color);
+  border: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid white;
+  transition-duration: 100ms;
+}
+
+button.move-page:hover,
+button.move-page:focus {
+  background-color: var(--default-tertiary-color);
+  border: 5px solid var(--default-tertiary-color);
+  cursor: pointer;
+}
+
+button.right {
+  border-top-right-radius:  10px;
+  border-bottom-right-radius:  10px;
+}
+
+button.left {
+  border-top-left-radius:  10px;
+  border-bottom-left-radius:  10px;
+}
+
+p.page-number {
+  padding: 0px 20px;
+  border-top: solid white 2px;
+  border-bottom: solid white 5px;
+  border-right: solid grey 1px;
+  border-left: solid grey 1px;
+  vertical-align: middle;
+  color: var(--default-primary-color);
+  background-color: white;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+p.move-label {
+  font-size: 1.5em;
+  font-weight: 100;
+}
