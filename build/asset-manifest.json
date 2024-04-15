@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/recordbin-frontend/static/css/main.1835da61.css",
+    "main.js": "/recordbin-frontend/static/js/main.3a7597ae.js",
+    "static/js/592.bf6ca574.chunk.js": "/recordbin-frontend/static/js/592.bf6ca574.chunk.js",
+    "static/media/recordbin.png": "/recordbin-frontend/static/media/recordbin.c022881e62f2148a45d6.png",
+    "index.html": "/recordbin-frontend/index.html",
+    "main.1835da61.css.map": "/recordbin-frontend/static/css/main.1835da61.css.map",
+    "main.3a7597ae.js.map": "/recordbin-frontend/static/js/main.3a7597ae.js.map",
+    "592.bf6ca574.chunk.js.map": "/recordbin-frontend/static/js/592.bf6ca574.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1835da61.css",
+    "static/js/main.3a7597ae.js"
+  ]
+}
