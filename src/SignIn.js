@@ -11,7 +11,7 @@ import Footer from "./components/Footer.js"
 import background from "./images/recordbin.png"
 
 const client = axios.create({
-  baseURL: "http://127.0.0.1:8000/"
+  baseURL: "https:recordbin-production.up.railway.app/"
 })
 
 function SignIn() {

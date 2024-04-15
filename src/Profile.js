@@ -20,7 +20,7 @@ import ListPreview from './components/ListPreview';
 import LoadingPage from './components/LoadingPage';
 
 const client = axios.create({
-  baseURL: "http://127.0.0.1:8000/"
+  baseURL: "https:recordbin-production.up.railway.app/"
 })
 
 const boxStyle = {
@@ -40,12 +40,13 @@ function Profile() {
   const { user_id } = useParams();
   const [loading, setLoading] = useState(true);
   const [user, setUserInfo] = useState({});
-  const [isAuth, setAuth] = useState(false)
-  const [newListTitle, setListTitle] = useState("")
-  const [newListDescrip, setListDescrip] = useState("")
-  const [createListOpen, setCreateListOpen] = useState(false)
+  const [lists, setLists] = useState([]);
+  const [isAuth, setAuth] = useState(false);
+  const [newListTitle, setListTitle] = useState("");
+  const [newListDescrip, setListDescrip] = useState("");
+  const [createListOpen, setCreateListOpen] = useState(false);
 
-  async function get_user_info(username) {
+  async function get_my_info() {
     try {
       const response = await client.get('/api/profile/',{
         headers: {
@@ -65,28 +66,32 @@ function Profile() {
 
     if (user_id == "me" && localStorage.getItem('access_token') !== null) {
       setAuth(true)
-    }
 
-    let username;
-    if (user_id == "me") {
-      username = "testuser"
-    }
-    else {
-      username = user_id
-    }
+      const fetch_data = async () => {
+        const data = await get_my_info();
+        const user_data = data[0]
+        const list_data = data[1]
 
-    const fetch_data = async () => {
-      const user_data = await get_user_info(username);
-      if (user_data) {
+        console.log(list_data)
+        let list_components = []
+        for (let i = 0; i < list_data.length; i++) {
+          list_components.push(<ListPreview
+            image={null}
+            name={list_data[i].title}
+            description={list_data[i].description}
+          />) 
+        }
+        
+        setLists(list_components);
         setUserInfo(user_data);
         setLoading(false);
-      } else {
-        // Handle error or show error message
-        setLoading(false);
-      }
-    };
+      };
+       
+      fetch_data().catch(console.error);
+    }
+    else {
 
-    fetch_data().catch(console.error);
+    }
 
   }, []);
 
@@ -98,8 +103,27 @@ function Profile() {
     setCreateListOpen(false);
   }
 
-  const handleNewList = () => {
+  const handleNewList = async () => {
+    const data = {
+      "list-title": newListTitle,
+      "list-description": newListDescrip,
+    }
 
+    console.log(data)
+
+    try {
+      const response = await client.post('/listmanager/', data,{
+        headers: {
+          Authorization: `Token ${localStorage.getItem('access_token')}`
+        },
+      });
+      // reload page to accomodate the new list
+      window.location.reload()
+    } catch (error) {
+      // Handle error (e.g., display error message)
+      console.error('Error creating new list:', error);
+      return null;
+    }
   }
 
   return (
@@ -193,36 +217,7 @@ function Profile() {
                 }
               </div>
               <div className='list-previews'>
-                <ListPreview 
-                  image={null}
-                  name={"Test List"}
-                  description={"This description describes the list in its entirety without leaving anything to the imagination "}
-                />
-                <ListPreview 
-                  image={null}
-                  name={"Test List"}
-                  description={"This description describes the list in its entirety without leaving anything to the imagination "}
-                />
-                <ListPreview 
-                  image={null}
-                  name={"Test List"}
-                  description={"This description describes the list in its entirety without leaving anything to the imagination "}
-                />
-                <ListPreview 
-                  image={null}
-                  name={"Test List"}
-                  description={"This description describes the list in its entirety without leaving anything to the imagination "}
-                />
-                <ListPreview 
-                  image={null}
-                  name={"Test List"}
-                  description={"This description describes the list in its entirety without leaving anything to the imagination "}
-                />
-                <ListPreview 
-                  image={null}
-                  name={"Test List"}
-                  description={"This description describes the list in its entirety without leaving anything to the imagination "}
-                />
+                {lists}
               </div>
             </section>
           </div>

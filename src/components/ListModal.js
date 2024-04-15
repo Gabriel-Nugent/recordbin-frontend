@@ -7,11 +7,19 @@ import { faList } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
 
 import "../styles/ListModal.css"
+import axios from 'axios';
 
 // props are list_cover, list_id, list_title, release_id, group_id, release_cover
 export default function ListModal(props) {
 
-  const [status, setStatus] = useState(false)
+  const [status, setStatus] = useState(props.inAlbum)
+
+  const client = axios.create({
+    baseURL: "https:recordbin-production.up.railway.app/",
+    headers: {
+      Authorization: `Token ${localStorage.getItem('access_token')}`
+    },
+  })
 
   const ListItemStyle = {
     display: "flex",
@@ -23,14 +31,52 @@ export default function ListModal(props) {
   }
 
   const add_to_list = async () => {
-
+    let data = {
+      "album_cover": props.album_cover,
+      "album_name": props.album_name,
+      "list_name": props.list_title,
+      "release_id": props.release_id,
+      "group_id": props.group_id,
+      "artists": props.artists
+    }
+    axios({
+      url:"https:recordbin-production.up.railway.app/listchanger/",
+      method: "POST",
+      headers: {
+        Authorization: `Token ${localStorage.getItem('access_token')}`
+      },
+      data : data,
+    })
+    .then((res) => {})
+    .catch((error) => {
+      // Handle error (e.g., display error message)
+      console.error('Error adding album to list:', error);
+      return null;
+    })
   }
 
   const remove_from_list = async () => {
-
+    let data = {
+      "list_name": props.list_title,
+      "release_id": props.release_id,
+    }
+    axios({
+      url:"https:recordbin-production.up.railway.app/listchanger/",
+      method: "DELETE",
+      headers: {
+        Authorization: `Token ${localStorage.getItem('access_token')}`
+      },
+      data : data,
+    })
+    .then((res) => {})
+    .catch((error) => {
+      // Handle error (e.g., display error message)
+      console.error('Error deleting album from list:', error);
+      return null;
+    })
   }
 
-  const handleChange = () => {
+  const handleChange = async () => {
     if (status == false) {
       add_to_list();
       setStatus(true)

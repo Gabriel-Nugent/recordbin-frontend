@@ -16,6 +16,7 @@ import Search from './Search';
 import Profile from './Profile';
 import CreateAcc from './CreateAcc';
 import Release from './Release';
+import List from './List'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path='search/:artist/:album/:pagenum' element={<Search />}/>
       <Route path='release/:group_id/:release_id' element={<Release />}/>
       <Route path='profile/:user_id' element={<Profile />}/>
+      <Route path='list/:list_name' element={<List />} />
     </Route>
   )
 )

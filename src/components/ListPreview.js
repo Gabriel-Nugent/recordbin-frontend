@@ -1,9 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faList } from "@fortawesome/free-solid-svg-icons";
 
+import { useNavigate } from 'react-router-dom';
+
 import '../styles/ListPreview.css'
 
 function ListPreview(props) {
+  const navigate = useNavigate();
+
+  const goto = () => {
+    navigate(`/list/${props.name}`)
+  }
+
   return (
     <div className="list-preview">
       <div className="list-preview-image">
@@ -13,7 +21,7 @@ function ListPreview(props) {
           <img src={props.image}/>
         }
       </div>
-      <section className="list-preview">
+      <section className="list-preview" onClick={goto}>
         <h3>{props.name}</h3>
         <p>{props.description}</p>
       </section>

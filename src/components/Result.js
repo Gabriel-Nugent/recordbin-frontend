@@ -18,7 +18,7 @@ function Result(props) {
       <div className="result-container">
         <button className="result-overlay" onClick={goto} />
         <div className="result-cover" onClick={goto} />
-        {props.image === "No Cover!" ?
+        {props.image === "No Cover!" || props.image === "No Cover" ?
             <FontAwesomeIcon icon={faCompactDisc} size="10x"/>
             :
             <img className="result-cover" src={props.image} alt={"cover for " + props.name}/>

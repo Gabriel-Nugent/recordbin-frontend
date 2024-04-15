@@ -54,7 +54,8 @@ function Release() {
   const { group_id, release_id } = useParams();
   const [loading, setLoading] = useState(true);
   const [rating, setRating] = useState();
-  const [status, setStatus] = useState();
+  const [listened, setListLog]  = useState(false);
+  const [userInfo, setUserInfo] = useState();
   const [listOpen, setListOpen] = useState();
   const [release_info, setReleaseInfo] = useState();
   const [lists, setLists] = useState();
@@ -108,19 +109,82 @@ function Release() {
     })
   }
 
+  async function get_lists() {
+    return Axios({
+      method: "get",
+      url: `https:recordbin-production.up.railway.app/listmanager/`,
+      headers: {
+        Authorization: `Token ${localStorage.getItem('access_token')}`
+      },
+    })
+    .then(res => res.data)
+    .catch((error) => {
+      //try to fix the error or
+      //notify the users about somenthing went wrong
+      console.log(error.message)
+    })
+  }
+
+  async function get_user_info(release_id) {
+    return Axios({
+      method: "get",
+      url: `https:recordbin-production.up.railway.app/ratingmanager/`,
+      headers: {
+        Authorization: `Token ${localStorage.getItem('access_token')}`,
+      },
+      params: {
+        release: release_id
+      }
+    })
+    .then(res => res.data)
+    .catch((error) => {
+      //try to fix the error or
+      //notify the users about somenthing went wrong
+      console.log(error.message)
+    })
+  }
+
+  async function set_rating(data) {
+    return Axios({
+      method: "post",
+      url: `https:recordbin-production.up.railway.app/ratingmanager/`,
+      headers: {
+        Authorization: `Token ${localStorage.getItem('access_token')}`
+      },
+      data: data,
+    })
+    .then(res => res.data)
+    .catch((error) => {
+      //try to fix the error or
+      //notify the users about somenthing went wrong
+      console.log(error.message)
+    })
+  }
+
+  async function set_status(data) {
+    return Axios({
+      method: "post",
+      url: `https:recordbin-production.up.railway.app/ratingmanager/`,
+      headers: {
+        Authorization: `Token ${localStorage.getItem('access_token')}`
+      },
+      data: data,
+    })
+    .then(res => res.data)
+    .catch((error) => {
+      //try to fix the error or
+      //notify the users about somenthing went wrong
+      console.log(error.message)
+    })
+  }
+
   useEffect(() => {
     setLoading(true)
-
-    if (localStorage.getItem('access_token') !== null) {
-      setIsAuth(true); 
-    }
 
     const fetch_data = async () => {
       const group_info = await get_group_info();
       const release_info = await get_release_info();
       const cover_info = await get_image();
-
-      console.log(release_info);
 
       let artists = "";
       for (let i = 0; i < group_info["artist-credit"].length; i++) {
@@ -167,20 +231,53 @@ function Release() {
         "tracks": track_components
       }
 
-      // get user info
-      const list_count = 9
-      let list_array = []
+      if (localStorage.getItem('access_token') != null) {
+        setIsAuth(true); 
 
-      for (let i = 0; i < list_count; i++) {
-        list_array.push(
-          <>
-            <ListModal cover={"No Cover"} list_title={"Test Title"}/>
-            <Divider className='divider' component = 'li' />
-          </>
-        )
+        const user_info = await get_user_info(release_id);
+        console.log(user_info)
+
+        if (user_info != null) {
+          setRating(user_info.rating / 2)
+          setListLog(user_info.status)
+        }
+
+        const list_info = await get_lists();
+
+        let list_components = []
+        console.log(list_info)
+        for (let i = 0; i < list_info.length; i++) {
+          
+          let inAlbum = false;
+          if (list_info[i].albums != null) {
+            for (let j = 0; j < list_info[i].albums.length; j++) {
+              if (list_info[i].albums[j].release_id == release_id) {
+                inAlbum = true;
+                break;
+              }
+            }
+          }
+
+          list_components.push(
+            <>
+              <ListModal 
+                list_title={list_info[i].title}
+                release_id={release_id}
+                group_id={group_id}
+                inAlbum={inAlbum}
+                album_cover={cover}
+                cover={"No Cover"}
+                album_name={group_info.title}
+                artists={artists}
+              />
+              <Divider className='divider' component = 'li' />
+            </>
+          )
+        }
+
+        setUserInfo(user_info);
+        setLists(list_components);
       }
-
-      setLists(list_array);
       setReleaseInfo(release_data);
       setLoading(false);
     }
@@ -240,12 +337,21 @@ function Release() {
                     size='large'
                     id="listened" 
                     name="listened" 
-                    defaultValue={0} 
+                    defaultValue={listened} 
                     precision={1}
                     max={1}
-                    value={rating}
+                    value={listened}
                     onChange={(e,new_status) => {
-                      setRating(new_status);
+                      const data = {
+                        "release_id": release_id,
+                        "group_id": group_id,
+                        "album_name": release_info["title"],
+                        "album_cover": release_info["cover"],
+                        "artists": release_info["artists"],
+                        "rating": 0,
+                      }
+                      set_status(data)
+                      setListLog(new_status);
                     }}
                     icon={<Album fontSize='inherit'/>}
                     emptyIcon={
@@ -270,10 +376,19 @@ function Release() {
                   <StyledRating 
                     id="rating" 
                     name="rating" 
-                    defaultValue={0.0} 
+                    defaultValue={rating} 
                     precision={0.5}
                     value={rating}
                     onChange={(e,new_rating) => {
+                      const data = {
+                        "release_id": release_id,
+                        "group_id": group_id,
+                        "album_name": release_info["title"],
+                        "album_cover": release_info["cover"],
+                        "artists": release_info["artists"],
+                        "rating": parseInt(new_rating * 2),
+                      }
+                      set_rating(data);
                       setRating(new_rating);
                     }} 
                     emptyIcon={
