@@ -3,7 +3,7 @@ div.profile {
 }
 
 main.profile-page {
-  height: fit-content;
+  height: 100%;
   background-color: var(--default-primary-color);
   display: flex;
   flex-direction: column;

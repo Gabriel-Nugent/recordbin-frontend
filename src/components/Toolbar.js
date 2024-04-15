@@ -13,6 +13,7 @@ function Toolbar(props) {
   const logout = () => {
     localStorage.clear()
     navigate("/", {reloadDocument: true});
+    window.location.reload();
   }
 
   if (props.signedin) {
