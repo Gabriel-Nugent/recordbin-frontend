@@ -21,7 +21,7 @@ import List from './List'
 // Routes to different pages in application
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/recordbin-frontend/'>
+    <Route path='https://recordbin.netlify.app/'>
       <Route index element={<Home />} />
       <Route path='signin' element={<SignIn />}/>
       <Route path='create-account' element={<CreateAcc/>} />
