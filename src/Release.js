@@ -24,6 +24,7 @@ import LoadingPage from './components/LoadingPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompactDisc } from '@fortawesome/free-solid-svg-icons';
 
+// styling for MUI components
 const boxStyle = {
   position: 'absolute',
   top: '50%',
@@ -61,6 +62,7 @@ function Release() {
   const [lists, setLists] = useState();
   const [isAuth, setIsAuth] = useState(false);
 
+  // get information for the release group
   async function get_group_info() {
     
     const search_url = `https://musicbrainz.org/ws/2/release-group/${group_id}?inc=artists+genres`;
@@ -76,6 +78,7 @@ function Release() {
       .then(res => res.data);
   }
 
+  // get information for this particular release in the group
   async function get_release_info() {
     return Axios({
       method: "get",
@@ -92,6 +95,7 @@ function Release() {
     })
   }
 
+  // retrieves the album cover from the cover art archive
   async function get_image() {
     return Axios({
       method: "get",
@@ -109,6 +113,7 @@ function Release() {
     })
   }
 
+  // get the lists of the signed in user
   async function get_lists() {
     return Axios({
       method: "get",
@@ -125,6 +130,7 @@ function Release() {
     })
   }
 
+  // get the information of the current user
   async function get_user_info(release_id) {
     return Axios({
       method: "get",
@@ -144,6 +150,7 @@ function Release() {
     })
   }
 
+  // sets the album's rating based on the user's input
   async function set_rating(data) {
     return Axios({
       method: "post",
@@ -161,6 +168,7 @@ function Release() {
     })
   }
 
+  // adds or removes the release from the user's listen log
   async function set_status(data) {
     return Axios({
       method: "post",
@@ -178,6 +186,7 @@ function Release() {
     })
   }
 
+  // fetch all relevant data on page load
   useEffect(() => {
     setLoading(true)
 
@@ -207,13 +216,14 @@ function Release() {
         cover = cover_info[0].image;
       }
 
+      // format all tracks in this release
       let track_components = [];
       const tracks = release_info.media[0].tracks;
       for (let i = 0; i < tracks.length; i++) {
         // get the length of the track
         let time = (tracks[i]["length"]) / 60000;
         const time_str = parseInt(time).toString() + ":" + parseInt((time % 1)*60).toString();
-
+        
         track_components.push(<Track 
           position={tracks[i].position}
           title={tracks[i].title}
@@ -231,6 +241,7 @@ function Release() {
         "tracks": track_components
       }
 
+      // get user data
       if (localStorage.getItem('access_token') != null) {
         setIsAuth(true); 
 
@@ -244,6 +255,7 @@ function Release() {
 
         const list_info = await get_lists();
 
+        // format all user's lists
         let list_components = []
         console.log(list_info)
         for (let i = 0; i < list_info.length; i++) {
@@ -287,10 +299,10 @@ function Release() {
 
   }, []);
 
+  // handle modal state change
   const handleOpen = () => {
     setListOpen(true);
   }
-
   const handleClose = () => {
     setListOpen(false);
   }

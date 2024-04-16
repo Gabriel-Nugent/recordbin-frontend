@@ -19,10 +19,12 @@ import "./styles/Profile.css"
 import ListPreview from './components/ListPreview';
 import LoadingPage from './components/LoadingPage';
 
+// connect to server
 const client = axios.create({
   baseURL: "https:recordbin-production.up.railway.app/"
 })
 
+// styling for modal
 const boxStyle = {
   position: 'absolute',
   top: '50%',
@@ -46,6 +48,7 @@ function Profile() {
   const [newListDescrip, setListDescrip] = useState("");
   const [createListOpen, setCreateListOpen] = useState(false);
 
+  // return user info
   async function get_my_info() {
     try {
       const response = await client.get('/api/profile/',{
@@ -64,6 +67,7 @@ function Profile() {
   useEffect(() => {
     setLoading(true);
 
+    // in case user is viewing their own profile
     if (user_id == "me" && localStorage.getItem('access_token') !== null) {
       setAuth(true)
 
@@ -72,6 +76,7 @@ function Profile() {
         const user_data = data[0]
         const list_data = data[1]
 
+        // get user's lists
         console.log(list_data)
         let list_components = []
         for (let i = 0; i < list_data.length; i++) {
@@ -95,14 +100,15 @@ function Profile() {
 
   }, []);
 
+  // functions for handling modal state
   const handleCreateListOpen = () => {
     setCreateListOpen(true);
   }
-
   const handleCreateListClose = () => {
     setCreateListOpen(false);
   }
 
+  // creates new list on submit
   const handleNewList = async () => {
     const data = {
       "list-title": newListTitle,

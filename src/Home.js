@@ -5,6 +5,11 @@ import './styles/Home.css';
 import Toolbar from './components/Toolbar'
 import Footer from './components/Footer';
 
+/*
+
+  Home Page first seen, entry point for application
+
+*/
 function Home() {
   const [isAuth, setIsAuth] = useState(false);
 

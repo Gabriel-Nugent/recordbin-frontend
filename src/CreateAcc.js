@@ -14,6 +14,10 @@ const client = axios.create({
   baseURL: "https:recordbin-production.up.railway.app/"
 })
 
+
+/*
+  Page for creating a user account 
+*/
 function CreateAcc() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -21,6 +25,7 @@ function CreateAcc() {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const navigate = useNavigate();
 
+  // register new user on server
   const handleSubmit = async(event) => {
     event.preventDefault();
     if (password !== passwordConfirmation) {

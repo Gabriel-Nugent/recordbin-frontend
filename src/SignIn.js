@@ -20,6 +20,7 @@ function SignIn() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  // verify user data and log user in
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

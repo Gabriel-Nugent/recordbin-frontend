@@ -2,6 +2,7 @@ import { Bars } from 'react-loader-spinner';
 
 import '../styles/LoadingPage.css'
 
+// page that appears while content is loading
 function LoadingPage() {
   return (
     <main id='loading-page'>

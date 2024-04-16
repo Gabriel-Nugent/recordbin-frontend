@@ -15,6 +15,7 @@ export default function List() {
   const {list_name} = useParams(); 
   const [results, setResults] = useState([]);
 
+  // fetch releases in list on load
   useEffect(() => {
     setLoading(true)
 
@@ -22,6 +23,7 @@ export default function List() {
       setIsAuth(true); 
     }
 
+    // get releases from server
     async function get_list_albums() {
       return Axios({
         url:"https:recordbin-production.up.railway.app/listchanger/",
@@ -46,6 +48,7 @@ export default function List() {
         
         console.log(albums[i].ablum_name)
 
+        // create release components
         releases.push(<Result
           id={albums[i].release_id}
           group_id={albums[i].group_id}

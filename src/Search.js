@@ -16,6 +16,7 @@ function Search() {
   const [loading, setLoading] = useState(true);
   const [isAuth, setIsAuth] = useState(false);
 
+  // get search results depending on the parameters in the url
   async function get_results() {
     let search_url;
     const artist_query = artist;
@@ -42,6 +43,7 @@ function Search() {
       .then(res => res.data);
   }
 
+  // get cover art of the release
   async function get_image(release) {
       return Axios({
         method: "get",

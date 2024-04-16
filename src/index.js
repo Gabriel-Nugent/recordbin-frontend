@@ -18,9 +18,10 @@ import CreateAcc from './CreateAcc';
 import Release from './Release';
 import List from './List'
 
+// Routes to different pages in application
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/'>
+    <Route path='/recordbin-frontend/'>
       <Route index element={<Home />} />
       <Route path='signin' element={<SignIn />}/>
       <Route path='create-account' element={<CreateAcc/>} />
@@ -37,7 +38,4 @@ root.render(
   <RouterProvider router={router} />
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
